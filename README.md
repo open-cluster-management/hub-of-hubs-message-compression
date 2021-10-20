@@ -13,6 +13,6 @@ This repo provides compression logic to be used by different transport component
 
 Code that wants to use a supported Compressor must call NewCompressor function with an identifier of any of the supported compression implementations.
 
-### Supported implementations (found in [compressor types](https://github.com/open-cluster-management/hub-of-hubs-message-compression/blob/683d77f70813296f266782b61109669acb78cc86/compressor_types.go#L10)):
+#### Supported implementations (found in [compressor types](https://github.com/open-cluster-management/hub-of-hubs-message-compression/blob/683d77f70813296f266782b61109669acb78cc86/compressor_types.go#L10)):
 
 - GZip - "gzip" : implements compression based on [compress/gzip](https://pkg.go.dev/compress/gzip) package.
