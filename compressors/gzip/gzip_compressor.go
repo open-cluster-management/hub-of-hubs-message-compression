@@ -20,7 +20,7 @@ func NewGzipCompressor() compressors.Compressor {
 type CompressorGZip struct{}
 
 // Compress compresses a slice of bytes using gzip lib.
-func (gzc *CompressorGZip) Compress(data []byte) ([]byte, error) {
+func (compressor *CompressorGZip) Compress(data []byte) ([]byte, error) {
 	var buf bytes.Buffer
 
 	gw, err := gzip.NewWriterLevel(&buf, gzip.BestSpeed)
@@ -36,7 +36,7 @@ func (gzc *CompressorGZip) Compress(data []byte) ([]byte, error) {
 }
 
 // Decompress decompresses a slice of gzip-compressed bytes using gzip lib.
-func (gzc *CompressorGZip) Decompress(compressedData []byte) ([]byte, error) {
+func (compressor *CompressorGZip) Decompress(compressedData []byte) ([]byte, error) {
 	// create a reader for the gzipped data
 	gr, err := gzip.NewReader(bytes.NewBuffer(compressedData))
 	if err != nil {
