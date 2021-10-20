@@ -1,19 +1,20 @@
-package messagecompression
+package compressor
 
-import supportedcompressors "github.com/open-cluster-management/hub-of-hubs-message-compression/supported-compressors"
+import (
+	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
+	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/gzip"
+)
 
-// CompressorType is the type of supported compressors.
+// CompressType is the compressing supported types.
 //
 // Supported types: GZip.
-type CompressorType string
+type CompressType string
 
 const (
 	// GZip is used to create a gzip-based Compressor.
-	GZip CompressorType = "gzip"
+	GZip CompressType = "gzip"
 )
 
-var compressorsMap = map[CompressorType]func() Compressor{
-	GZip: func() Compressor {
-		return supportedcompressors.CreateGzipCompressor()
-	},
+var compressorsMap = map[CompressType]func() compressors.Compressor{
+	GZip: gzip.NewGzipCompressor,
 }
