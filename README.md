@@ -5,13 +5,13 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/open-cluster-management/hub-of-hubs-message-compression)](https://goreportcard.com/report/github.com/open-cluster-management/hub-of-hubs-message-compression)
 [![License](https://img.shields.io/github/license/open-cluster-management/hub-of-hubs-message-compression)](/LICENSE)
 
-The message-compression logic component of [Hub-of-Hubs](https://github.com/open-cluster-management/hub-of-hubs).
+The message compression component of [Hub-of-Hubs](https://github.com/open-cluster-management/hub-of-hubs).
 
 This repo provides compression logic to be used by different transport components for compression/decompression of synced messages.
 
 ## How it works
 
-Code that wants to use a supported Compressor must call NewCompressor function with a string identifier of any supported compression-logic implementation.
+Code that wants to use a supported Compressor must call NewCompressor function with an identifier of any of the supported compression implementations.
 
 ### Supported implementations (found in [compressor types](https://github.com/open-cluster-management/hub-of-hubs-message-compression/blob/683d77f70813296f266782b61109669acb78cc86/compressor_types.go#L10)):
 
