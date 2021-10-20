@@ -11,7 +11,7 @@ This repo provides compression logic to be used by different transport component
 
 ## How it works
 
-In order to use a supported Compressor one must call NewCompressor function with an identifier of any of the supported compression implementations.
+In order to use message compression one must call NewCompressor function with an identifier of any of the supported compression implementations.
 
 #### Supported implementations (found in [compressor types](https://github.com/open-cluster-management/hub-of-hubs-message-compression/blob/683d77f70813296f266782b61109669acb78cc86/compressor_types.go#L10)):
 
