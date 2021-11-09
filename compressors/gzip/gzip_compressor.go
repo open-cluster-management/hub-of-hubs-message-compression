@@ -5,14 +5,12 @@ import (
 	"compress/gzip"
 	"fmt"
 	"io/ioutil"
-
-	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
 )
 
 const gzipCompressorErrorString = "gzip compressor error"
 
 // NewGzipCompressor returns a new instance of gzip-based compressor.
-func NewGzipCompressor() compressors.Compressor {
+func NewGzipCompressor() *CompressorGZip {
 	return &CompressorGZip{}
 }
 

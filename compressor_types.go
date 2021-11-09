@@ -1,7 +1,6 @@
 package compressor
 
 import (
-	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
 	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/gzip"
 )
 
@@ -15,6 +14,8 @@ const (
 	GZip CompressType = "gzip"
 )
 
-var compressorsMap = map[CompressType]func() compressors.Compressor{
-	GZip: gzip.NewGzipCompressor,
+var compressorsMap = map[CompressType]func() Compressor{
+	GZip: func() Compressor {
+		return gzip.NewGzipCompressor()
+	},
 }
