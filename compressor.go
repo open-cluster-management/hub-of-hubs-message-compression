@@ -6,9 +6,9 @@ import (
 
 var errCompressorTypeNotFound = errors.New("compressor type not supported")
 
-// NewCompressor returns a compressor instance that corresponds to the given CompressorType.
-func NewCompressor(compressorType CompressType) (Compressor, error) {
-	createCompressorFunc, found := compressorsMap[compressorType]
+// NewCompressor returns a compressor instance that corresponds to the given CompressionType.
+func NewCompressor(compressorType CompressionType) (Compressor, error) {
+	createCompressorFunc, found := initializationMap[compressorType]
 	if !found {
 		return nil, errCompressorTypeNotFound
 	}
@@ -18,6 +18,7 @@ func NewCompressor(compressorType CompressType) (Compressor, error) {
 
 // Compressor declares the functionality provided by the different compression logics supported.
 type Compressor interface {
+	GetType() string
 	Compress([]byte) ([]byte, error)
 	Decompress([]byte) ([]byte, error)
 }
