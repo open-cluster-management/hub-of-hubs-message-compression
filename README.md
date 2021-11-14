@@ -9,7 +9,9 @@ The message compression component of [Hub-of-Hubs](https://github.com/open-clust
 
 This repo provides compression logic to be used by different transport components for compression/decompression of synced messages.
 
-## How it works
+Go to the [Contributing guide](CONTRIBUTING.md) to learn how to get involved.
+
+## Getting Started
 
 In order to use message compression one must call NewCompressor function with an identifier of any of the supported compression implementations.
 
