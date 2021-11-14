@@ -5,28 +5,37 @@ import (
 	"compress/gzip"
 	"fmt"
 	"io/ioutil"
+
+	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
 )
 
-const gzipCompressorErrorString = "gzip compressor error"
+const (
+	gzipCompressorErrorString = "gzip compressor error"
+)
 
-// NewGzipCompressor returns a new instance of gzip-based compressor.
-func NewGzipCompressor() *CompressorGZip {
+// NewGZipCompressor returns a new instance of gzip-based compressor.
+func NewGZipCompressor() compressors.Compressor {
 	return &CompressorGZip{}
 }
 
-// CompressorGZip implements Compressor with gzip-based logic.
+// CompressorGZip implements CompressorGZip with gzip-based logic.
 type CompressorGZip struct{}
+
+// GetType returns the string representing this GZip compressor in the types map.
+func (compressor *CompressorGZip) GetType() string {
+	return "gzip"
+}
 
 // Compress compresses a slice of bytes using gzip lib.
 func (compressor *CompressorGZip) Compress(data []byte) ([]byte, error) {
 	var buf bytes.Buffer
 
-	gw, err := gzip.NewWriterLevel(&buf, gzip.BestSpeed)
-	if err != nil {
+	gw := gzip.NewWriter(&buf)
+	if _, err := gw.Write(data); err != nil {
 		return nil, fmt.Errorf("%s - %w", gzipCompressorErrorString, err)
 	}
 
-	if _, err := gw.Write(data); err != nil {
+	if err := gw.Close(); err != nil {
 		return nil, fmt.Errorf("%s - %w", gzipCompressorErrorString, err)
 	}
 
@@ -45,6 +54,8 @@ func (compressor *CompressorGZip) Decompress(compressedData []byte) ([]byte, err
 	if err != nil {
 		return nil, fmt.Errorf("%s - %w", gzipCompressorErrorString, err)
 	}
+
+	_ = gr.Close()
 
 	return data, nil
 }
