@@ -3,6 +3,7 @@
 # hub-of-hubs-message-compression
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/open-cluster-management/hub-of-hubs-message-compression)](https://goreportcard.com/report/github.com/open-cluster-management/hub-of-hubs-message-compression)
+[![Go Reference](https://pkg.go.dev/badge/github.com/open-cluster-management/hub-of-hubs-message-compression.svg)](https://pkg.go.dev/github.com/open-cluster-management/hub-of-hubs-message-compression)
 [![License](https://img.shields.io/github/license/open-cluster-management/hub-of-hubs-message-compression)](/LICENSE)
 
 The message compression component of [Hub-of-Hubs](https://github.com/open-cluster-management/hub-of-hubs).
