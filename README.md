@@ -14,7 +14,7 @@ Go to the [Contributing guide](CONTRIBUTING.md) to learn how to get involved.
 
 ## Getting Started
 
-In order to use message compression one must call NewCompressor function with an identifier of any of the supported compression implementations.
+In order to use message compression one must call NewCompressor function with the string identifier of any of the supported compression implementations.
 
 #### Supported implementations (found in [compressor types](https://github.com/open-cluster-management/hub-of-hubs-message-compression/blob/main/compressor.go#L18)):
 
