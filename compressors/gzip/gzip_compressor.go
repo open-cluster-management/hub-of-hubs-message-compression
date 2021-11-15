@@ -21,7 +21,7 @@ func NewGZipCompressor() compressors.Compressor {
 // CompressorGZip implements CompressorGZip with gzip-based logic.
 type CompressorGZip struct{}
 
-// GetType returns the string representing this GZip compressor in the types map.
+// GetType returns the string identifier for this GZip compressor in the types map.
 func (compressor *CompressorGZip) GetType() string {
 	return "gzip"
 }
@@ -55,7 +55,9 @@ func (compressor *CompressorGZip) Decompress(compressedData []byte) ([]byte, err
 		return nil, fmt.Errorf("%s - %w", gzipCompressorErrorString, err)
 	}
 
-	_ = gr.Close()
+	if err = gr.Close(); err != nil {
+		return nil, fmt.Errorf("%s - %w", gzipCompressorErrorString, err)
+	}
 
 	return data, nil
 }

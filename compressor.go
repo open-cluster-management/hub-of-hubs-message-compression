@@ -4,15 +4,34 @@ import (
 	"errors"
 
 	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
+	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/gzip"
+	noop "github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/no-op"
 )
 
-var errCompressorTypeNotFound = errors.New("compressor type not supported")
+var errCompressionTypeNotFound = errors.New("compression type not supported")
 
-// NewCompressor returns a compressor instance that corresponds to the given CompressorType.
-func NewCompressor(compressorType CompressionType) (compressors.Compressor, error) {
-	createCompressorFunc, found := compressorsMap[compressorType]
+// CompressionType is the type identifying supported compression methods.
+//
+// Supported types: NoOp, GZip.
+type CompressionType string
+
+const (
+	// NoOp is used to create a no-op Compressor.
+	NoOp CompressionType = "no-op"
+	// GZip is used to create a gzip-based Compressor.
+	GZip CompressionType = "gzip"
+)
+
+// NewCompressor returns a compressor instance that corresponds to the given CompressionType.
+func NewCompressor(compressionType CompressionType) (compressors.Compressor, error) {
+	supportedCompressors := map[CompressionType]func() compressors.Compressor{
+		NoOp: noop.NewNoOpCompressor,
+		GZip: gzip.NewGZipCompressor,
+	}
+
+	createCompressorFunc, found := supportedCompressors[compressionType]
 	if !found {
-		return nil, errCompressorTypeNotFound
+		return nil, errCompressionTypeNotFound
 	}
 
 	return createCompressorFunc(), nil

@@ -1,7 +1,7 @@
 
 # This makefile defines the following targets
 #
-#   - all (default) - formats the code and downloads vendor libs
+#   - all (no-op) - formats the code and downloads vendor libs
 #   - fmt - formats the code
 #   - vendor - download all third party libraries and puts them inside vendor directory
 #   - clean-vendor - removes third party libraries from vendor directory
