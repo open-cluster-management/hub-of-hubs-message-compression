@@ -7,7 +7,7 @@ func NewNoOpCompressor() compressors.Compressor {
 	return &CompressorNoOp{}
 }
 
-// CompressorNoOp implements a compressor based on the No-Op pattern.
+// CompressorNoOp implements Compressor based on the No-Op pattern.
 type CompressorNoOp struct{}
 
 // GetType returns the string identifier for this no-op compressor in the types map.

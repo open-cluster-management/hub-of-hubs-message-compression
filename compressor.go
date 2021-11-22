@@ -24,15 +24,13 @@ const (
 
 // NewCompressor returns a compressor instance that corresponds to the given CompressionType.
 func NewCompressor(compressionType CompressionType) (compressors.Compressor, error) {
-	supportedCompressors := map[CompressionType]func() compressors.Compressor{
-		NoOp: noop.NewNoOpCompressor,
-		GZip: gzip.NewGZipCompressor,
-	}
+	switch compressionType {
+	case NoOp:
+		return noop.NewNoOpCompressor(), nil
+	case GZip:
+		return gzip.NewGZipCompressor(), nil
 
-	createCompressorFunc, found := supportedCompressors[compressionType]
-	if !found {
+	default:
 		return nil, errCompressionTypeNotFound
 	}
-
-	return createCompressorFunc(), nil
 }

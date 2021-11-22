@@ -18,7 +18,7 @@ func NewGZipCompressor() compressors.Compressor {
 	return &CompressorGZip{}
 }
 
-// CompressorGZip implements CompressorGZip with gzip-based logic.
+// CompressorGZip implements Compressor with gzip-based logic.
 type CompressorGZip struct{}
 
 // GetType returns the string identifier for this GZip compressor in the types map.
