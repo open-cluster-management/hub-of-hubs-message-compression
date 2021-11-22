@@ -11,8 +11,6 @@ import (
 var errCompressionTypeNotFound = errors.New("compression type not supported")
 
 // CompressionType is the type identifying supported compression methods.
-//
-// Supported types: NoOp, GZip.
 type CompressionType string
 
 const (
@@ -29,7 +27,6 @@ func NewCompressor(compressionType CompressionType) (compressors.Compressor, err
 		return noop.NewNoOpCompressor(), nil
 	case GZip:
 		return gzip.NewGZipCompressor(), nil
-
 	default:
 		return nil, errCompressionTypeNotFound
 	}

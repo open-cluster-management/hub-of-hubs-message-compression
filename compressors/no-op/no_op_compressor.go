@@ -2,6 +2,10 @@ package noop
 
 import "github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
 
+const (
+	noOpType = "no-op"
+)
+
 // NewNoOpCompressor returns a new instance of no-op compressor.
 func NewNoOpCompressor() compressors.Compressor {
 	return &CompressorNoOp{}
@@ -10,9 +14,9 @@ func NewNoOpCompressor() compressors.Compressor {
 // CompressorNoOp implements Compressor based on the No-Op pattern.
 type CompressorNoOp struct{}
 
-// GetType returns the string identifier for this no-op compressor in the types map.
+// GetType returns the string identifier for no-op compressor.
 func (compressor *CompressorNoOp) GetType() string {
-	return "no-op"
+	return noOpType
 }
 
 // Compress returns the bytes received as-is.

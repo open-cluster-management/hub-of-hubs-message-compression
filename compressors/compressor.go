@@ -1,6 +1,6 @@
 package compressors
 
-// Compressor declares the functionality provided by the different compression logics supported.
+// Compressor declares the functionality provided by the different supported compressors.
 type Compressor interface {
 	// GetType returns the string type identifier of the compressor.
 	GetType() string
