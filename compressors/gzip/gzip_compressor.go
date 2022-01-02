@@ -11,7 +11,7 @@ import (
 
 const (
 	gzipCompressorErrorString = "gzip compressor error"
-	gzipType = "gzip"
+	gzipType                  = "gzip"
 )
 
 // NewGZipCompressor returns a new instance of gzip-based compressor.
