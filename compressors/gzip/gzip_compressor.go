@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
+	"github.com/stolostron/hub-of-hubs-message-compression/compressors"
 )
 
 const (

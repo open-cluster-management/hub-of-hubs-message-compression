@@ -1,6 +1,6 @@
 package noop
 
-import "github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
+import "github.com/stolostron/hub-of-hubs-message-compression/compressors"
 
 const (
 	noOpType = "no-op"

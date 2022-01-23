@@ -3,9 +3,9 @@ package compressor
 import (
 	"errors"
 
-	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors"
-	"github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/gzip"
-	noop "github.com/open-cluster-management/hub-of-hubs-message-compression/compressors/no-op"
+	"github.com/stolostron/hub-of-hubs-message-compression/compressors"
+	"github.com/stolostron/hub-of-hubs-message-compression/compressors/gzip"
+	noop "github.com/stolostron/hub-of-hubs-message-compression/compressors/no-op"
 )
 
 var errCompressionTypeNotFound = errors.New("compression type not supported")
