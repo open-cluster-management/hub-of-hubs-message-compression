@@ -16,7 +16,7 @@ Go to the [Contributing guide](CONTRIBUTING.md) to learn how to get involved.
 
 In order to use message compression one must call NewCompressor function with the string identifier of any of the supported compression implementations.
 
-#### Supported implementations (found in [compressor types](https://github.com/stolostron/hub-of-hubs-message-compression/blob/main/compressor.go#L18)):
+#### Supported implementations (found in [compressor types](https://github.com/stolostron/hub-of-hubs-message-compression/blob/main/compressor.go#L16)):
 
 - GZip - "gzip" : implements compression based on [compress/gzip](https://pkg.go.dev/compress/gzip) package.
 - NoOp - "no-op" : implements no-op compression based on the No-Op pattern.
